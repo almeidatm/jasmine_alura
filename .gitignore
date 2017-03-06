@@ -1,0 +1,4 @@
+# Ignore jasmine lib files
+lib/
+# Ignore license files
+*.LICENSE
