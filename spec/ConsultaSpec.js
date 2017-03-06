@@ -18,5 +18,17 @@ describe("Consulta", function() {
 
         expect(consulta.preco()).toEqual(25 + 55 + 32 + 25);
     });
-    
+    it("deve cobrar preco dobrado pra consulta particular com procedimentos simples", function(){
+        var thiago = new Paciente("Thiago", 25, 59, 1.72);
+        var consulta = new Consulta(thiago, ["proc1", "proc2"], true, false);
+
+        expect(consulta.preco()).toEqual(100);
+    });
+    it("deve cobrar preco dobrado pra consulta particular com procedimentos especiais", function(){
+        var thiago = new Paciente("Thiago", 25, 59, 1.72);
+        var consulta = new Consulta(thiago, ["raio-x", "gesso"], true, false);
+
+        expect(consulta.preco()).toEqual((55 + 32) * 2);
+    });
+
 });
